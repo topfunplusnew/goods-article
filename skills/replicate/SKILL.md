@@ -11,6 +11,22 @@ Replicate the current on-disk `ai4e-site` project exactly at the behavior level,
 
 This skill is for strict replica work, not redesigns or approximate migrations.
 
+## Project CLI
+
+This project includes a local CLI for onboarding and AI-assisted development:
+
+```bash
+pnpm init:project
+pnpm cli -- skill --print
+pnpm cli -- dev
+```
+
+`pnpm init:project` creates local environment files, upload directories,
+installs this SKILL into `.codex/skills/replicate-ai4e-site/SKILL.md`, installs
+dependencies, and initializes the SQLite seed data. Future agents should
+inspect this SKILL before changing route parity, API contracts, static asset
+behavior, or admin write flows.
+
 ## Non-Negotiable Rules
 
 1. Treat the current source code as the behavior truth.

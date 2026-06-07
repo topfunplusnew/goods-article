@@ -134,6 +134,34 @@ Change colors, typography, radii, shadows, and container widths there. `app/glob
 
 ## Development
 
+Initialize the project in one command:
+
+```bash
+pnpm init:project
+```
+
+This creates `.env.local` from `.env.example` when needed, ensures SQLite and
+upload directories exist, installs the project development SKILL into
+`.codex/skills/replicate-ai4e-site/SKILL.md`, installs dependencies, and
+preheats the SQLite seed data.
+
+Initialize from a shell script:
+
+```bash
+sh scripts/bootstrap.sh
+```
+
+From an empty directory, pass the repository URL:
+
+```bash
+curl -fsSL <raw-bootstrap-url> | sh -s -- <repo-url> good-papers
+```
+
+If the repository URL is omitted, the script prompts for it interactively.
+Press Enter to use the default repository:
+`https://github.com/topfunplusnew/goods-article`.
+If the target directory is omitted, it uses the repository name.
+
 Install dependencies:
 
 ```bash
@@ -166,6 +194,14 @@ Run verification:
 pnpm test
 pnpm run typecheck
 pnpm run lint
+```
+
+Inspect the project CLI and development SKILL:
+
+```bash
+pnpm cli -- help
+pnpm cli -- skill --print
+pnpm cli -- dev
 ```
 
 ## Verification Checklist

@@ -2,11 +2,17 @@
   "name": "good-papers",
   "version": "0.1.0",
   "private": true,
+  "bin": {
+    "good-papers": "./bin/good-papers.mjs"
+  },
   "scripts": {
+    "cli": "node bin/good-papers.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "init:project": "node bin/good-papers.mjs init",
+    "seed": "tsx scripts/seed-database.ts",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/**/*.test.ts",
     "test:e2e": "playwright test"
