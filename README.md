@@ -1,36 +1,199 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Good Papers
 
-## Getting Started
+Next.js replica of the current `ai4e-site` project in `/Users/zhangming/Code/Projects/ai4edu/ai4e-site`.
 
-First, run the development server:
+## Scope
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Public site routes
+- Admin route tree
+- Route handlers and metadata routes
+- Internationalization dictionaries
+- Theme-driven styling
+- Source route and endpoint inventory
+- Replica guidance skill
+
+## Constraints
+
+- No magic values in feature code
+- No fallback logic in feature contracts
+- No generic wrapper transport layer
+- No guessed backend fields
+- Current on-disk `ai4e-site` is the behavior source of truth
+
+## Tech Stack
+
+- Next.js 16 App Router
+- Next Route Handlers for the local API backend
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- SQLite via Node's built-in `node:sqlite`
+- `tsx --test` for unit-style tests
+- Playwright for browser verification
+
+## Directory Structure
+
+```text
+app/
+  (public)/
+  (admin)/
+  api/
+src/
+  config/
+  features/
+  i18n/
+  shared/
+docs/
+  source-inventory/
+  superpowers/
+tests/
+skills/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Route Mapping
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Public
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/`
+- `/article`
+- `/article/search`
+- `/article/[id]`
+- `/issue` -> redirect to `/all-issues`
+- `/issue/[id]`
+- `/all-issues`
+- `/authors`
+- `/author/articles`
+- `/about`
+- `/about/[...slug]`
+- `/publish`
+- `/publish/[id]`
+- `/login`
+- `/user/me`
 
-## Learn More
+### Admin
 
-To learn more about Next.js, take a look at the following resources:
+- `/admin`
+- `/admin/login`
+- `/admin/account`
+- `/admin/articles`
+- `/admin/articles/new`
+- `/admin/articles/[id]/edit`
+- `/admin/issues`
+- `/admin/issues/new`
+- `/admin/issues/[id]/edit`
+- `/admin/volumes`
+- `/admin/journal`
+- `/admin/about`
+- `/admin/about/new`
+- `/admin/about/[slug]`
+- `/admin/about/custom/[id]`
+- `/admin/publish`
+- `/admin/publish/new`
+- `/admin/publish/[slug]`
+- `/admin/publish/custom/[id]`
+- `/admin/publishing`
+- `/admin/publishing/new`
+- `/admin/publishing/[slug]`
+- `/admin/publishing/custom/[id]`
+- `/admin/deploy`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Required variables for the local full-stack app:
 
-## Deploy on Vercel
+```bash
+BACKEND_ORIGIN=http://127.0.0.1:3000
+NEXT_PUBLIC_SITE_URL=http://127.0.0.1:3000
+NEXT_PUBLIC_API_BASE_URL=/api/v1
+INTERNAL_API_BASE_URL=http://127.0.0.1:3000/api/v1
+NEXT_PUBLIC_LOCALE_TRANSLATE=true
+LOCALE_TRANSLATION_PROVIDER=google_gtx
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Optional variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+DEEPL_AUTH_KEY=
+DEEPL_API_URL=https://api-free.deepl.com
+GOOGLE_TRANSLATE_API_KEY=
+```
+
+Use `.env.local` for machine-local values. `.env.example` documents the expected keys.
+
+## Theme Configuration
+
+Theme tokens live in [theme.ts](/Users/zhangming/Code/Projects/good-papers/src/config/theme.ts).
+
+Change colors, typography, radii, shadows, and container widths there. `app/globals.css` consumes those values through CSS variables.
+
+## i18n Behavior
+
+- Dictionaries are copied from the source project into `src/i18n/dictionaries/`
+- Locale persistence follows the source project storage key: `article-vue-i18n-locale`
+- The current server implementation defaults to `en` until client-side locale switching is wired further
+
+## Development
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Start the development server:
+
+```bash
+pnpm dev
+```
+
+The Next app also serves the backend under `/api/v1/*`. The SQLite database
+is created and seeded automatically at `data/good-papers.sqlite` on first API
+access. The default local admin credentials are `admin` / `admin`.
+
+Static front-end assets are managed from `/admin/static-assets`. Uploaded files
+are stored under `data/uploads/static-assets/` and served from
+`/uploads/static-assets/*`.
+
+Start with Docker Compose:
+
+```bash
+docker compose up -d --build
+```
+
+Run verification:
+
+```bash
+pnpm test
+pnpm run typecheck
+pnpm run lint
+```
+
+## Verification Checklist
+
+- Public routes respond
+- `robots.txt` responds
+- `sitemap.xml` responds
+- Public article, issue, author, about, and publish pages render live data
+- `pnpm test` passes
+- `pnpm run typecheck` passes
+- `pnpm run lint` passes
+
+## Current Status
+
+Implemented now:
+
+- Config layer
+- Theme layer
+- Source dictionaries
+- Public route shells
+- Public read-only data for journal, issue, article, author, about, and publish
+- `robots.txt`
+- `sitemap.xml`
+- Explicit translation provider route behavior
+
+Still in progress:
+
+- Admin write flows
+- Auth-backed submission flow
+- Full article and issue metadata parity
+- Final skill verification loop
