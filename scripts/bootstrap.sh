@@ -157,9 +157,9 @@ run_project_init() {
   mkdir -p data data/uploads/issues data/uploads/journals data/uploads/static-assets
   log "ensured SQLite and upload directories"
 
-  if [ -f skills/replicate-ai4e-site/SKILL.md ] && ! has_init_arg "--skip-skill-install"; then
-    mkdir -p .codex/skills/replicate-ai4e-site
-    cp skills/replicate-ai4e-site/SKILL.md .codex/skills/replicate-ai4e-site/SKILL.md
+  if [ -f skills/replicate-article-website/SKILL.md ] && ! has_init_arg "--skip-skill-install"; then
+    mkdir -p .codex/skills/replicate-article-website
+    cp skills/replicate-article-website/SKILL.md .codex/skills/replicate-article-website/SKILL.md
     log "installed project skill into .codex/skills"
   fi
 

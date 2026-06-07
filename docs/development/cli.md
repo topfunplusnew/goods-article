@@ -12,7 +12,7 @@ pnpm init:project
 
 - Creates `.env.local` from `.env.example` unless it already exists.
 - Ensures `data/` and upload directories exist.
-- Installs `skills/replicate-ai4e-site/SKILL.md` into `.codex/skills/`.
+- Installs `skills/replicate-article-website/SKILL.md` into `.codex/skills/`.
 - Runs `pnpm install`.
 - Runs `pnpm exec tsx scripts/seed-database.ts` to create and seed SQLite data.
 

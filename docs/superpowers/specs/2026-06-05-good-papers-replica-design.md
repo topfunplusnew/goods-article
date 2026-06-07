@@ -2,11 +2,11 @@
 
 Date: `2026-06-05`
 Target project: `/Users/zhangming/Code/Projects/good-papers`
-Source project: `/Users/zhangming/Code/Projects/ai4edu/ai4e-site`
+Source project: `/Users/zhangming/Code/Projects/ai4edu/article-website`
 
 ## Objective
 
-Rebuild the current `ai4e-site` project in Next.js with React and TypeScript under `good-papers`, preserving the source project's current on-disk behavior and structure at the feature level.
+Rebuild the current `article-website` project in Next.js with React and TypeScript under `good-papers`, preserving the source project's current on-disk behavior and structure at the feature level.
 
 This is a full replica, not a partial port. Scope includes:
 
@@ -24,7 +24,7 @@ This is a full replica, not a partial port. Scope includes:
 
 These constraints are mandatory and define the implementation.
 
-1. Source of truth is the current on-disk state of `ai4e-site`, including uncommitted changes.
+1. Source of truth is the current on-disk state of `article-website`, including uncommitted changes.
 2. API truth comes from the structures actually consumed and emitted by the current Nuxt project, not from OpenAPI files.
 3. Deployment target is a standard Next.js Node server using the App Router.
 4. No magic values in feature code. Constants must live in configuration modules.
@@ -369,7 +369,7 @@ The target project README must include:
 Create a skill inside the target project:
 
 ```text
-skills/replicate-ai4e-site/SKILL.md
+skills/replicate-article-website/SKILL.md
 ```
 
 The skill must instruct an AI to reproduce this project faithfully under the following rules:
@@ -382,7 +382,7 @@ The skill must instruct an AI to reproduce this project faithfully under the fol
 - Keep theme tokens configurable and centralized
 - Verify route parity, contract parity, and style parity before declaring completion
 
-The skill should be procedural, checklist-driven, and optimized for reliable triggering when a user asks to replicate the `ai4e-site` project or an exact equivalent.
+The skill should be procedural, checklist-driven, and optimized for reliable triggering when a user asks to replicate the `article-website` project or an exact equivalent.
 
 ## Out of Scope
 

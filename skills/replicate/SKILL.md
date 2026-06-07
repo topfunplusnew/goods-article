@@ -1,13 +1,13 @@
 ---
-name: replicate-ai4e-site
-description: Use when recreating the ai4e-site project or a functionally identical journal site in another stack and the result must match current behavior without guessed contracts, fallback logic, or generic wrapper abstractions
+name: replicate-article-website
+description: Use when recreating the article-website project or a functionally identical journal site in another stack and the result must match current behavior without guessed contracts, fallback logic, or generic wrapper abstractions
 ---
 
-# Replicate ai4e-site
+# Replicate article-website
 
 ## Overview
 
-Replicate the current on-disk `ai4e-site` project exactly at the behavior level, but implement it as native code for the target stack.
+Replicate the current on-disk `article-website` project exactly at the behavior level, but implement it as native code for the target stack.
 
 This skill is for strict replica work, not redesigns or approximate migrations.
 
@@ -22,7 +22,7 @@ pnpm cli -- dev
 ```
 
 `pnpm init:project` creates local environment files, upload directories,
-installs this SKILL into `.codex/skills/replicate-ai4e-site/SKILL.md`, installs
+installs this SKILL into `.codex/skills/replicate-article-website/SKILL.md`, installs
 dependencies, and initializes the SQLite seed data. Future agents should
 inspect this SKILL before changing route parity, API contracts, static asset
 behavior, or admin write flows.

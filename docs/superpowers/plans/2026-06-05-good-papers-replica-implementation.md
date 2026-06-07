@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild the current `ai4e-site` project as a native Next.js App Router application in `good-papers` with behavior parity, explicit contracts, centralized configuration, and no fallback logic, wrapper logic, or guessed contracts.
+**Goal:** Rebuild the current `article-website` project as a native Next.js App Router application in `good-papers` with behavior parity, explicit contracts, centralized configuration, and no fallback logic, wrapper logic, or guessed contracts.
 
 **Architecture:** The work is split into sequential, testable phases: evidence capture, platform foundation, public read paths, admin write paths, server-side integrations, and final docs and verification. Every feature reads from explicit per-endpoint DTOs and maps into page-facing models without generic transport helpers.
 
@@ -186,7 +186,7 @@ git commit -m "chore: prepare next replica toolchain"
 
 - [ ] **Step 2: Verify the route inventory against source files**
 
-Run: `find /Users/zhangming/Code/Projects/ai4edu/ai4e-site/app/pages -type f | sort`
+Run: `find /Users/zhangming/Code/Projects/ai4edu/article-website/app/pages -type f | sort`
 Expected: Output matches the route inventory exactly, including admin pages.
 
 - [ ] **Step 3: Write the endpoint inventory from actual source usage**
@@ -250,7 +250,7 @@ Expected: Output matches the route inventory exactly, including admin pages.
 
 - [ ] **Step 4: Verify endpoint evidence from source composables**
 
-Run: `rg -n 'apiFetch|fetch\\(|/articles|/issues|/journals|/abouts|/publishes|/authors|/volumes|/funds|/affiliations|/auth' /Users/zhangming/Code/Projects/ai4edu/ai4e-site/app/composables`
+Run: `rg -n 'apiFetch|fetch\\(|/articles|/issues|/journals|/abouts|/publishes|/authors|/volumes|/funds|/affiliations|/auth' /Users/zhangming/Code/Projects/ai4edu/article-website/app/composables`
 Expected: Each endpoint listed in `docs/source-inventory/endpoints.md` is traceable to source code.
 
 - [ ] **Step 5: Write the dictionary and asset inventories**
@@ -1202,7 +1202,7 @@ git commit -m "feat: add metadata and translation routes"
 
 **Files:**
 - Modify: `README.md`
-- Create: `skills/replicate-ai4e-site/SKILL.md`
+- Create: `skills/replicate-article-website/SKILL.md`
 - Create: `tests/e2e/route-parity.spec.ts`
 
 - [ ] **Step 1: Write the failing route parity smoke test**
@@ -1231,7 +1231,7 @@ Expected: FAIL until all route paths are fully wired.
 # Good Papers
 
 ## Scope
-- Full Next.js replica of `ai4e-site`
+- Full Next.js replica of `article-website`
 - Public site
 - Admin site
 - Locale translation route
@@ -1248,11 +1248,11 @@ Expected: FAIL until all route paths are fully wired.
 
 ```md
 ---
-name: replicate-ai4e-site
-description: Use when recreating the ai4e-site project or an exact equivalent in another stack and the output must match current behavior without guessed contracts, fallback logic, or wrapper abstractions
+name: replicate-article-website
+description: Use when recreating the article-website project or an exact equivalent in another stack and the output must match current behavior without guessed contracts, fallback logic, or wrapper abstractions
 ---
 
-# Replicate ai4e-site
+# Replicate article-website
 
 ## Workflow
 1. Inventory routes
@@ -1280,7 +1280,7 @@ Expected: PASS
 - [ ] **Step 6: Commit**
 
 ```bash
-git add README.md skills/replicate-ai4e-site/SKILL.md tests/e2e/route-parity.spec.ts
+git add README.md skills/replicate-article-website/SKILL.md tests/e2e/route-parity.spec.ts
 git commit -m "docs: add replica guidance and final verification"
 ```
 

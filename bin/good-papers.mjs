@@ -7,9 +7,9 @@ import { fileURLToPath } from "node:url";
 
 const cliDirectory = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(cliDirectory, "..");
-const skillRelativePath = "skills/replicate-ai4e-site/SKILL.md";
+const skillRelativePath = "skills/replicate-article-website/SKILL.md";
 const skillSourcePath = join(projectRoot, skillRelativePath);
-const localSkillPath = join(projectRoot, ".codex/skills/replicate-ai4e-site/SKILL.md");
+const localSkillPath = join(projectRoot, ".codex/skills/replicate-article-website/SKILL.md");
 
 const rawArgs = process.argv.slice(2).filter((arg) => arg !== "--");
 

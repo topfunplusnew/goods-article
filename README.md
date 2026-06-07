@@ -1,6 +1,6 @@
 # Good Papers
 
-Next.js replica of the current `ai4e-site` project in `/Users/zhangming/Code/Projects/ai4edu/ai4e-site`.
+Next.js replica of the current `article-website` project in `/Users/zhangming/Code/Projects/ai4edu/article-website`.
 
 ## Scope
 
@@ -18,7 +18,7 @@ Next.js replica of the current `ai4e-site` project in `/Users/zhangming/Code/Pro
 - No fallback logic in feature contracts
 - No generic wrapper transport layer
 - No guessed backend fields
-- Current on-disk `ai4e-site` is the behavior source of truth
+- Current on-disk `article-website` is the behavior source of truth
 
 ## Tech Stack
 
@@ -142,7 +142,7 @@ pnpm init:project
 
 This creates `.env.local` from `.env.example` when needed, ensures SQLite and
 upload directories exist, installs the project development SKILL into
-`.codex/skills/replicate-ai4e-site/SKILL.md`, installs dependencies, and
+`.codex/skills/replicate-article-website/SKILL.md`, installs dependencies, and
 preheats the SQLite seed data.
 
 Initialize from a shell script:
